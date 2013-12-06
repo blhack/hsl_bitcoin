@@ -18,7 +18,8 @@ const int LCDdelay=10;  // conservative, 2 actually works
 
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xEE };
-char server[] = "blhack.me";
+//You need to put your server's domain name here.
+char server[] = "example.com";
 IPAddress ip(192,168,0,177);
 EthernetClient client;
 
@@ -65,8 +66,8 @@ void setup() {
 
   if (client.connect(server, 80)) {
     // Make a HTTP request:
-    client.println("GET /labs/current.btc HTTP/1.1");
-    client.println("Host: blhack.me");
+    client.println("GET /lcurrent.btc HTTP/1.1");
+    client.println("Host: example.com"); //put your server here again
     client.println("Connection: close");
     client.println();
   } 
@@ -78,8 +79,8 @@ void setup() {
 void update() {
   if (client.connect(server, 80)) {
     // Make a HTTP request:
-    client.println("GET /labs/current.btc HTTP/1.1");
-    client.println("Host: blhack.me");
+    client.println("GET /current.btc HTTP/1.1");
+    client.println("Host: example.com");
     client.println("Connection: close");
     client.println();
   } 
